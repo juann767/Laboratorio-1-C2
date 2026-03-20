@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>MenúYa - Pedidos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+
+<div id="app" class="container">
+
+  <h1>MenúYa</h1>
+  <h3>Realiza tu pedido</h3>
+
+  <input type="text" v-model="nombreCliente" placeholder="Nombre del cliente">
+
+  <select v-model="categoria">
+    <option disabled value="">Seleccione categoría</option>
+    <option value="Comida rápida">Comida rápida</option>
+    <option value="Almuerzo">Almuerzo</option>
+    <option value="Postres">Postres</option>
+  </select>
+
+  <select v-model="comidaSeleccionada">
+    <option disabled value="">Seleccione comida</option>
+    <option v-for="item in comidasFiltradas" :value="item">
+      {{ item.nombre }} - ${{ item.precio }}
+    </option>
+  </select>
+
+  <input type="number" v-model="cantidad" placeholder="Cantidad">
+
+  <button @click="agregarPedido">Agregar Pedido</button>
+
+  <p class="error" v-if="error">{{ error }}</p>
+
+  <h3>Pedidos</h3>
+
+  <ul>
+    <li v-for="(pedido, index) in pedidos" :key="index">
+      {{ pedido.nombre }} pidió {{ pedido.comida }} ({{ pedido.categoria }}) x{{ pedido.cantidad }} = ${{ pedido.total }}
+      <button @click="eliminarPedido(index)"></button>
+    </li>
+  </ul>
+
+  <h2 v-if="pedidos.length > 0">Total general: ${{ totalGeneral }}</h2>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
