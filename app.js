@@ -12,8 +12,8 @@ createApp({
 
       comidas: [
         { nombre: 'Pizza', categoria: 'Comida rápida', precio: 5 },
-        { nombre: 'Hamburguesa', categoria: 'Comida rápida', precio: 4 },
-        { nombre: 'Pollo frito', categoria: 'Almuerzo', precio: 6 },
+        { nombre: 'Tacos', categoria: 'Comida rápida', precio: 4 },
+        { nombre: 'Pollo guisado', categoria: 'Almuerzo', precio: 6 },
         { nombre: 'Arroz con pollo', categoria: 'Almuerzo', precio: 5 },
         { nombre: 'Pastel', categoria: 'Postres', precio: 3 },
         { nombre: 'Helado', categoria: 'Postres', precio: 2 }
